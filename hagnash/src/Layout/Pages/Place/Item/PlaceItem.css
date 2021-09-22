@@ -12,3 +12,15 @@
     color: #0071c2;
     font-weight: bold;
 }
+
+.placeScore {
+    border-radius: 5.81818px 5.81818px 0 5.81818px;
+    background: #003580;
+    color: #fff;
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
