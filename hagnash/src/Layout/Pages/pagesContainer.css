@@ -1,4 +1,15 @@
-.pagesContainer {
-  background-image: url("../../assets/background.jpg");
-  height: 100vh;
+.ui.red.segment.searchContainer {
+  height: 20vh;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.ui.big.left.icon input {
+  text-align: center;
+  font-weight: bolder;
+  width: 25em;
 }
