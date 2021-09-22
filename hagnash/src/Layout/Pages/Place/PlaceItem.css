@@ -1,0 +1,14 @@
+.ui.items>.item.placeItem {
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    direction: rtl;
+    text-align: right;
+    border: 1px solid #c6c6c6;
+    border-radius: 3px;
+    padding: 16px;
+}
+
+.ui.items>.item>.content>.header.placeName {
+    font-size: 20px;
+    color: #0071c2;
+    font-weight: bold;
+}
