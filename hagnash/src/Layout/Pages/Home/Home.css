@@ -1,0 +1,9 @@
+.homeContainer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.searchLabel {
+    align-content: center;
+}
