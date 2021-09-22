@@ -1,14 +1,16 @@
 import './Home.css';
-import {Container, Search, Segment} from "semantic-ui-react";
-import {Searcher} from "../../../CommonComponents/Search";
+import {Header, Search} from "semantic-ui-react";
 
 const SEARCH_LABEL = "חפש את ההגנש שלך";
+
 export const Home = () => {
 
-    return <Segment color='red' className='searchContainer'>
-        <Searcher onSearch={() => {}}
-            /*className="searchInput"
-            input={{icon: 'search', iconPosition: 'left', size: 'big', placeholder: SEARCH_LABEL}}*/
-        />
-    </Segment>;
+    return <div className='homeContainer'>
+            <Search
+                input={{ icon: 'search', iconPosition: 'left', size:'big' }}
+            />
+            <Header className='searchLabel'>
+                {SEARCH_LABEL}
+            </Header>
+    </div>;
 }
