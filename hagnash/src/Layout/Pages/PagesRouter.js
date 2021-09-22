@@ -3,6 +3,7 @@ import './pagesContainer.css';
 import {Switch, Route} from "react-router-dom";
 import {Home} from './Home/Home';
 import {About} from "./About";
+import {Place} from "./Place/Place";
 
 export const PagesRouter = () => {
     return (
@@ -14,7 +15,7 @@ export const PagesRouter = () => {
                     <About />
                 </Route>
                 <Route path="/place">
-
+                    <Place />
                 </Route>
             </Switch>
     )
