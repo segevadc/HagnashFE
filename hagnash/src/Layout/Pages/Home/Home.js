@@ -2,8 +2,10 @@ import {useState, useMemo} from 'react';
 import './Home.css';
 import {Input, Segment, Icon} from "semantic-ui-react";
 
+
 const SEARCH_LABEL = "חפש את ההגנש שלך";
-export const Home = (factory, deps) => {
+
+export const Home = () => {
 
     const [inputText, setInputText] = useState("");
 
