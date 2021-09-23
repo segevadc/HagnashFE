@@ -1,8 +1,10 @@
 import './PlaceItem.css';
 
-import {Item, Label } from 'semantic-ui-react'
+import {Item, Label, Loader} from 'semantic-ui-react'
+import {HagnashApi} from "../../../../api/HagnashAPI";
+import {useHistory} from "react-router-dom";
+import {useEffect, useState} from "react";
 
-const EXAMPLE_IMAGE = "img.png"
 
 export const FacilitiesSection = ({facilities}) => {
     let labels = facilities.map(facility => <Label content={facility} className="facility"/>);
@@ -12,14 +14,33 @@ export const FacilitiesSection = ({facilities}) => {
     </Item.Extra>
 }
 
-export const PlaceScore = ({score}) => {
-    return <div className="placeScore">{score}</div>
+export const PlaceScore = ({placeId}) => {
+
+    const [placeScore, setPlaceScore] = useState(0);
+    const [fetchingStore, setFetchingScore] = useState(true);
+
+
+    useEffect(() => {
+        (async () => {
+            const placeScore = await HagnashApi.getPlaceScore(placeId);
+            setPlaceScore(placeScore.data.avg_grade || 0);
+            setFetchingScore(false);
+        })();
+    }, [])
+
+    return fetchingStore ? <Loader inline active size='small' /> : <div className="placeScore">{placeScore}</div>;
 }
+
 
 export const PlaceItem = ({place}) => {
 
-    return <Item className="placeItem">
-        <Item.Image src={EXAMPLE_IMAGE}/>
+    const history = useHistory();
+
+    const goToPlacePage = () => {
+        history.push(`/place?id=${place.id}`);
+    }
+    return <Item className="placeItem"  onClick={goToPlacePage}>
+        <Item.Image  className='previewImage' src={HagnashApi.getImage(place.images[0].path)}/>
 
         <Item.Content>
             <Item.Header className="placeName">{place.name}</Item.Header>
@@ -27,9 +48,9 @@ export const PlaceItem = ({place}) => {
                 <span className="placeArea">{place.area}</span>
             </Item.Meta>
             <Item.Description className="placeDescription">{place.description}</Item.Description>
-            <FacilitiesSection facilities={place.facilities} />
+            <FacilitiesSection facilities={place.facilities}/>
         </Item.Content>
 
-        <PlaceScore score={place.score} />
+        <PlaceScore placeId={place.id}/>
     </Item>
 }

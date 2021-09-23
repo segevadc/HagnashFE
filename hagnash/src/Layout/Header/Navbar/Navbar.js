@@ -34,6 +34,13 @@ export const Navbar = () => {
                 onClick={() => handleItemClick('about')}
             />
             </Link>
+            <Link to='/place'>
+                <Menu.Item
+                    name='place'
+                    active={activeItem === 'place'}
+                    onClick={() => handleItemClick('place')}
+                />
+            </Link>
         </Menu>
 
     )
