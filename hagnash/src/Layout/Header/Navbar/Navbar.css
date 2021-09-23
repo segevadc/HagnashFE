@@ -1,0 +1,16 @@
+.mainNavbar {
+    background: #003580;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#logo {
+    font-weight: bold;
+    font-size: 1.8rem;
+    font-family: "Century Gothic", sans-serif;
+    color: white;
+}
+
+#dot-com {
+    color: #0896FF;
+}
