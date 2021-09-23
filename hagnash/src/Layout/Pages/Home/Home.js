@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './Home.css';
-import {useHistory} from'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {Input, Segment, Icon} from "semantic-ui-react";
 
 
@@ -16,17 +16,27 @@ export const Home = () => {
         history.push(`/places?text=${inputText}`)
     };
 
-    return <Segment color='red' className='searchContainer'>
-        <Input
-            className='searchInput'
-            size='big'
-            onChange={(e, data) => setInputText(data.value)}
-            icon={<Icon
-                onClick={onSearch}
-                name='search' inverted
-                circular
-                link
+    return <div className="landingView">
+        <div className="home-grid searchGrid">
+            <div className="searchText">
+                בחר את <strong>ההגנש<br/>המושלם</strong> עבורך
+            </div>
+            <Input
+                className='searchInput'
+                size='big'
+                onChange={(e, data) => setInputText(data.value)}
+                icon={<Icon
+                    onClick={onSearch}
+                    name='search' inverted
+                    circular
+                    link
                 />}
                 placeholder={SEARCH_LABEL}
-        /> </Segment>;
+            />
+        </div>
+
+        <div className="home-grid imageGrid">
+
+        </div>
+    </div>;
 }
