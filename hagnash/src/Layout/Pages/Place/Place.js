@@ -1,35 +1,101 @@
 import {useEffect, useState} from "react";
-import {Grid, Segment, Image} from "semantic-ui-react";
+import {Grid, Segment, Loader, Header, Divider, List, Icon} from "semantic-ui-react";
 import {Gallery} from "./Gallery";
 import {Map} from './Map';
 import {HagnashApi} from "../../../api/HagnashAPI";
-
+import {CommentsFeed} from './CommentsFeed'
 import "./place.css";
 
-const imagesMock = [{desc: "desription", path:'https://www.ufis.org.il/data/images/2945_ec289c6f0a9d96c947a2b61bb17255dc.jpg'},
-    {desc:"second description", path:'data:image/jpeg;base64,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'}];
-
-export const Place = ({placeId}) => {
+export const Place = () => {
 
     const [place, setPlace] = useState(null);
 
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const icons = {
+        'sit': 'bed',
+        'walk': 'blind',
+        'gym': 'heartbeat',
+        'pool': 'bath',
+        'music_room': 'music'
+    }
+
+    const facilities_dict = {
+        'pool': 'בריכה',
+        'music_room': 'חדר מוזיקה',
+        'gym': 'חדר כושר'
+    }
+
     useEffect(() => {
         (async () => {
-            const placeDocument = await HagnashApi.getPlace(placeId);
-            setPlace(placeDocument);
+            const placeDocument = await HagnashApi.getPlace(urlParams.get('id'));
+            console.log(placeDocument);
+            setPlace(placeDocument.data);
         })();
-    }, [placeId])
+    }, [])
 
-    return <Segment color='red' className="place">
-        <Grid celled='internally'>
-            <Grid.Row >
-                <Grid.Column width={12}>
-                    <Gallery images={imagesMock} />
-                </Grid.Column>
-                <Grid.Column width={4}>
-                    <Map />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
-    </Segment>
+    return place ? <div style={{display: "flex", alignItems: 'center', flexDirection:'column'   }}>
+            <Segment color='red' className="place">
+                <Grid celled='internally'>
+                    <Grid.Row>
+                        <Grid.Column width={6}>
+                            <Gallery images={place.images}/>
+                            <Map lat={place.location.lat} lon={place.location.lon} name={place.name}/>
+                        </Grid.Column>
+                        <Grid.Column width={10}>
+                            <Grid>
+                                <Grid.Row>
+
+                                    <Grid.Column>
+                                        <div style={{height: '50rem', overflowY: 'auto'}}>
+                                            <div>
+                                                <Header as='h1'>{place.name}</Header>
+                                                <Divider/>
+                                                <Header as='h2'>תיאור כללי</Header>
+                                                <p style={{fontSize: '1.6rem'}}>{place.description}</p>
+                                            </div>
+                                            <div style={{marginTop: '4rem'}}>
+                                                <Header as='h2'>עמדות שמירה</Header>
+                                                <List style={{direction: 'rtl'}} horizontal={true}>
+                                                    {place.guard_post.map(post => {
+                                                        return <List.Item>
+                                                            <List.Icon size='big' name={icons[post.type]}
+                                                                       verticalAlign='middle'/>
+                                                            <List.Content>
+                                                                <List.Header as='h3'>{post.name}</List.Header>
+                                                                <List.Description as='a'
+                                                                                  style={{width: '20rem'}}>{post.description}</List.Description>
+                                                            </List.Content>
+                                                        </List.Item>
+                                                    })}
+                                                </List>
+                                            </div>
+                                            <div style={{marginTop: '4rem'}}>
+                                                <Header as='h2'>מתקנים</Header>
+                                                <List style={{direction: 'rtl'}} horizontal={true}>
+                                                    {place.facilities.map(facility => {
+                                                        return <List.Item>
+                                                            <List.Icon size='big' name={icons[facility]}
+                                                                       verticalAlign='middle'/>
+                                                            <List.Content>
+                                                                <List.Header
+                                                                    as='h3'>{facilities_dict[facility]}</List.Header>
+                                                            </List.Content>
+                                                        </List.Item>
+                                                    })}
+                                                </List>
+                                            </div>
+                                        </div>
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </Segment>
+            <Segment color='blue' className="place" style={{minHeight:'20rem', margin:'1rem'}}>
+                <CommentsFeed/>
+            </Segment>
+        </div> :
+        <Loader active size='huge'/>
 }

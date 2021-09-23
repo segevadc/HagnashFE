@@ -1,13 +1,14 @@
 .place {
     text-align: right;
+    width: 95%;
 }
 
 .map {
-    height: 80%;
+    height: 20rem;
     width:100%;
 }
 
 .gallery {
-    height: 80%;
+    height: 25rem;
     width:100%;
 }

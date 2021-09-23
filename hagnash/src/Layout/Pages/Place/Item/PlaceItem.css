@@ -5,12 +5,17 @@
     border: 1px solid #c6c6c6;
     border-radius: 3px;
     padding: 16px;
+    cursor: pointer;
 }
 
 .ui.items>.item>.content>.header.placeName {
     font-size: 20px;
     color: #0071c2;
     font-weight: bold;
+}
+
+.ui.items>.item>.image.previewImage {
+    margin-left: 1em;
 }
 
 .placeScore {

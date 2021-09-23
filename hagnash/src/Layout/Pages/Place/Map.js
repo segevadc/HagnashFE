@@ -1,21 +1,22 @@
 import GoogleMapReact from 'google-map-react';
-const AnyReactComponent = ({text}) => <div>{text}</div>;
+import {Icon, Popup} from "semantic-ui-react";
+const Marker = ({text}) => <Popup trigger={<Icon name='map pin' color='red' size='large' />} position={'top center'} content={text} />;
 
 const MAP = "מפה";
 
-export const Map = () => {
+export const Map = ({lon, lat, name}) => {
     return (
         <div className='map'>
             <h2>{MAP}</h2>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: "AIzaSyDgU31uqyBgITNn2IsP7YIxkme264SLET4" }}
-                defaultCenter={{lat: 59.95, lng: 30.33}}
+                defaultCenter={{lat: parseInt(lon), lng: parseInt(lat)}}
                 defaultZoom={11}
             >
-                <AnyReactComponent
-                    lat={59.955413}
-                    lng={30.337844}
-                    text="My Marker"
+                <Marker
+                    lat={parseInt(lon)}
+                    lng={parseInt(lat)}
+                    text={name}
                 />
             </GoogleMapReact>
         </div>

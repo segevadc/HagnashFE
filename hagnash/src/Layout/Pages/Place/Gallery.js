@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 import {Image} from 'semantic-ui-react';
+import {HagnashApi} from "../../../api/HagnashAPI";
 
 const PICTURES = "תמונות";
 
@@ -10,22 +11,19 @@ export const Gallery = ({images}) => {
     const settings = {
         dots: true,
         infinite: true,
-        centerMode: true,
+        centerMode: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+
+
     return <div className="gallery">
         <h2>{PICTURES}</h2>
         <Slider {...settings}>
-            {images.forEach((image) =>
-                <div>
-                    <Image className="placePicture" src={image.path} size='big'/>
-                </div>
-            )}
             {images.map((image) =>
                 <div>
-                    <Image className="placePicture" src={image.path} size='big'/>
+                    <Image className="placePicture" src={HagnashApi.getImage(image.path)} style={{height:'20rem', width:'100%'}}/>
                 </div>
             )}
         </Slider>
