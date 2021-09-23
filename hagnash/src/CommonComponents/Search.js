@@ -1,6 +1,6 @@
 import {Container, Search, Segment} from "semantic-ui-react";
 
-const SEARCH_LABEL = "מצא את ההגנש המושלם בשבילך";
+const SEARCH_LABEL = "חיפוש חופשי";
 export const Searcher = ({onSearch}) => {
 
     return (<Search
