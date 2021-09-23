@@ -1,13 +1,13 @@
 import './pagesContainer.css';
 
-import {Segment} from 'semantic-ui-react';
 import {Switch, Route} from "react-router-dom";
 import {Home} from './Home/Home';
 import {About} from "./About";
+import {Place} from "./Place/Place";
+import {PlacesList} from "./Place/List/PlacesList";
 
 export const PagesRouter = () => {
     return (
-        <Segment color='red' className="pagesContainer">
             <Switch>
                 <Route path="/" exact>
                     <Home/>
@@ -15,10 +15,12 @@ export const PagesRouter = () => {
                 <Route path="/about">
                     <About />
                 </Route>
+                <Route path="/places">
+                    <PlacesList />
+                </Route>
                 <Route path="/place">
-
+                    <Place />
                 </Route>
             </Switch>
-        </Segment>
     )
 }

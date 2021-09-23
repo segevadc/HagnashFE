@@ -1,6 +1,8 @@
 import {useState, useCallback} from 'react';
 import {Menu, Icon} from 'semantic-ui-react';
 import {Link} from "react-router-dom";
+import {Button} from "react-bootstrap";
+import LOGO from "../../../assets/hagnash_logo.png"
 
 export const Navbar = () => {
     const [activeItem, setActiveItem] = useState('home');
@@ -12,27 +14,11 @@ export const Navbar = () => {
     return (
         <Menu pointing secondary>
             <Link to='/'>
-            <Menu.Item
-                name='bus'
-            >
-                    <Icon name='bus' size='large' color="red"/>
-            </Menu.Item>
-            </Link>
-
-            <Link to='/'>
-            <Menu.Item
-                name='home'
-                active={activeItem === 'home'}
-                onClick={() => handleItemClick('home')}
-            />
-            </Link>
-
-            <Link to='/about'>
-            <Menu.Item
-                name='about'
-                active={activeItem === 'about'}
-                onClick={() => handleItemClick('about')}
-            />
+                <Menu.Item position="right">
+                    <div id="logo">
+                        Hagnash<span id="dot-com">.com</span>
+                    </div>
+                </Menu.Item>
             </Link>
         </Menu>
 

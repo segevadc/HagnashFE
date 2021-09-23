@@ -1,0 +1,33 @@
+.ui.items>.item.placeItem {
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    direction: rtl;
+    text-align: right;
+    border: 1px solid #c6c6c6;
+    border-radius: 3px;
+    padding: 16px;
+    cursor: pointer;
+    background: white;
+}
+
+.ui.items>.item>.content>.header.placeName {
+    font-size: 20px;
+    color: #0071c2;
+    font-weight: bold;
+}
+
+.ui.items>.item>.image.previewImage {
+    margin-left: 1em;
+}
+
+.placeScore {
+    border-radius: 5.81818px 5.81818px 0 5.81818px;
+    font-weight: bold;
+    background: #003580;
+    color: #fff;
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
