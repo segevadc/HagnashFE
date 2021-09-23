@@ -19,7 +19,7 @@
 }
 
 .placeScore {
-    border-radius: 5.81818px;
+    border-radius: 5.81818px 5.81818px 0 5.81818px;
     font-weight: bold;
     background: #003580;
     color: #fff;
