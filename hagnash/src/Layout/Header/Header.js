@@ -1,5 +1,6 @@
 import {Navbar} from "./Navbar/Navbar";
+import './Navbar/Navbar.css';
 
 export const Header = () => {
-    return <Navbar />
+    return <div className="mainNavbar"><Navbar /></div>
 }
