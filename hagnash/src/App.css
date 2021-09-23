@@ -5,6 +5,10 @@
     font-family: 'Heebo', sans-serif;
 }
 
-body {
+p{
+    direction: rtl;
+}
+
+body{
     background: #EEEEEE;
 }

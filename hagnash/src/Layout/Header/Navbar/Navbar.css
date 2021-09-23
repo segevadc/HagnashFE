@@ -2,6 +2,7 @@
     background: #003580;
     display: flex;
     flex-direction: row-reverse;
+    margin-bottom: 2rem;
 }
 
 #logo {
