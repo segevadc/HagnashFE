@@ -35,7 +35,7 @@ export const Place = () => {
     }, [])
 
     return place ? <div style={{display: "flex", alignItems: 'center', flexDirection:'column'   }}>
-            <Segment color='red' className="place">
+            <Segment color='blue' className="place">
                 <Grid >
                     <Grid.Row>
                         <Grid.Column width={6}>

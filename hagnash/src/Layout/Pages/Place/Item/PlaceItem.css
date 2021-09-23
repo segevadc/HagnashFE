@@ -6,6 +6,7 @@
     border-radius: 3px;
     padding: 16px;
     cursor: pointer;
+    background: white;
 }
 
 .ui.items>.item>.content>.header.placeName {
