@@ -6,6 +6,7 @@
     border-radius: 3px;
     padding: 16px;
     cursor: pointer;
+    background: white;
 }
 
 .ui.items>.item>.content>.header.placeName {
@@ -20,6 +21,7 @@
 
 .placeScore {
     border-radius: 5.81818px 5.81818px 0 5.81818px;
+    font-weight: bold;
     background: #003580;
     color: #fff;
     height: 32px;

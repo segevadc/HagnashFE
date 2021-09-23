@@ -8,5 +8,5 @@ export const HagnashApi = {
     getPlaceScore: (placeId) => axios.get(`${BASE_URL}/rateAverage/${placeId}`),
     searchPlaces: (searchText) => axios.get(`${BASE_URL}/places/${searchText}`),
     getComments: (placeId) => axios.get(`${BASE_URL}/comments/${placeId}`),
-    addComment: (placeId, comment) => axios.post(`${BASE_URL}/addComment`, {...comment})
+    addComment: (comment) => axios.post(`${BASE_URL}/comments`, {...comment})
 }

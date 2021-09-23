@@ -35,8 +35,8 @@ export const Place = () => {
     }, [])
 
     return place ? <div style={{display: "flex", alignItems: 'center', flexDirection:'column'   }}>
-            <Segment color='red' className="place">
-                <Grid celled='internally'>
+            <Segment color='blue' className="place">
+                <Grid >
                     <Grid.Row>
                         <Grid.Column width={6}>
                             <Gallery images={place.images}/>
