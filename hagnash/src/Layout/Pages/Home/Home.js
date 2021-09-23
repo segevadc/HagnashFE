@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Home.css';
 import {useHistory} from 'react-router-dom';
-import {Input, Segment, Icon} from "semantic-ui-react";
+import {Input, Segment, Icon, Form} from "semantic-ui-react";
 
 
 const SEARCH_LABEL = "חיפוש חופשי";
@@ -21,7 +21,8 @@ export const Home = () => {
             <div className="searchText">
                 בחר את <strong>ההגנש<br/>המושלם</strong> עבורך
             </div>
-            <Input
+            <Form onSubmit={onSearch}>
+            <Form.Input
                 className='searchInput'
                 size='big'
                 onChange={(e, data) => setInputText(data.value)}
@@ -33,6 +34,7 @@ export const Home = () => {
                 />}
                 placeholder={SEARCH_LABEL}
             />
+            </Form>
         </div>
 
         <div className="home-grid imageGrid">

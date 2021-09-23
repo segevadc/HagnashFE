@@ -4,10 +4,9 @@
 
 }
 
-.ui.input.searchInput input {
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
     width: 25em;
-    align-content: center;
-    text-align: center;
+
     border-radius: 7em;
 }
 
